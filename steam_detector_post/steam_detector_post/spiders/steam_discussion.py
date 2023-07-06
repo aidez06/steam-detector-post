@@ -1,7 +1,8 @@
 
 import scrapy
 from typing import Generator
-from steam_detector_post.steam_detector_post.items import SteamDetectorPostItem
+from steam_detector_post.items import SteamDetectorPostItem
+
 
 
 class SteamDiscussion(scrapy.Spider):
@@ -42,8 +43,9 @@ class SteamDiscussion(scrapy.Spider):
         title_post = response.meta.get('title_post')
         steam_profile = response.meta.get('steam_profile')
         max_post_length = 1
-
+       
         if len(response.css('div.searchresult_matches')) <= max_post_length:
+            print(steam_profile)
             post_item['title'] = title_post
             post_item['profile'] = steam_profile
             yield post_item

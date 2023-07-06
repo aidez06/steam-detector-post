@@ -1,3 +1,4 @@
+import logging
 # Scrapy settings for steam_detector_post project
 #
 # For simplicity, this file contains only settings considered important or
@@ -20,6 +21,10 @@ ITEM_PIPELINES = {
     'steam_discussion.pipelines.SaveSQLPipeLine': 300,
 }
 
+# Logging settings
+LOG_LEVEL = logging.INFO
+LOG_FORMAT = "%(asctime)s [%(name)s] %(levelname)s: %(message)s"
+LOG_FILE = "scrapy.log"
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "steam_detector_post (+http://www.yourdomain.com)"
 

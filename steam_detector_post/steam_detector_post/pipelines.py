@@ -6,21 +6,22 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
+from steam_data_fetcher import SteamDataFetcher
 
-
+import mysql.connector
+import os
 class SteamDetectorPostPipeline:
     def process_item(self, item, spider):
         return item
 
 
-import mysql.connector
 class SaveSQLPipeLine:
     def __init__(self):
         self.conn = mysql.connector.connect(
             host='localhost',
             port=3307,  # Replace with the desired port number (e.g., 3307)
             user='root',
-            password='password',
+            password=os.environ.get('SQLPASSWORD'),
             database='steamDB'
         )
         self.cur = self.conn.cursor()
@@ -36,6 +37,7 @@ class SaveSQLPipeLine:
         """)
 
     def process_item(self, item, spider):
+        # if SteamDataFetcher('')
         if not self.item_exists(item):
             self.insert_post(item)
         return item
@@ -52,12 +54,13 @@ class SaveSQLPipeLine:
     def item_exists(self, item):
         query = """
             SELECT COUNT(*) FROM steam_discussion
-            WHERE title_post = %s AND profile = %s
+            WHERE profile = %s
         """
-        values = (item["title"], item["profile"])
+        values = (item["profile"],)
         self.cur.execute(query, values)
         result = self.cur.fetchone()
         return result[0] > 0
+
 
     def close_spider(self, spider):
         self.cur.close()

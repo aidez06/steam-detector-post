@@ -1,9 +1,14 @@
 import time
-from steam_detector_post.steam_detector_post.spiders.steam_discussion import SteamDiscussion
+import subprocess
 
+import os
 while True:
-    spider = SteamDiscussion()
-    spider.start_requests()
+    # Start the program as a subprocess
+    process = subprocess.Popen(["scrapy", "crawl", "steam_discussion"], cwd=f"{os.getcwd()}/steam_detector_post/steam_detector_post/spiders/")
 
-    # Wait for the specified interval before running the spider again
-    time.sleep(60)  # Sleep for 60 seconds (1 minute) before the next run
+    # Wait for the specified interval
+    time.sleep(60)  # Sleep for 60 seconds (1 minute)
+
+    # Terminate the subprocess
+    process.terminate()
+    process.wait()
