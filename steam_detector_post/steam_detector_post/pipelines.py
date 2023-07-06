@@ -20,7 +20,7 @@ class SaveSQLPipeLine:
             host='localhost',
             port=3307,  # Replace with the desired port number (e.g., 3307)
             user='root',
-            password='cashflow404',
+            password='password',
             database='steamDB'
         )
         self.cur = self.conn.cursor()

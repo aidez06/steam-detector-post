@@ -1,8 +1,8 @@
 
 import scrapy
 from typing import Generator
-from steam_detector_post.items import SteamDetectorPostItem
-from scrapy.dupefilters import RFPDupeFilter
+from steam_detector_post.steam_detector_post.items import SteamDetectorPostItem
+
 
 class SteamDiscussion(scrapy.Spider):
 
