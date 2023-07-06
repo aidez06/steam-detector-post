@@ -29,7 +29,7 @@ class SteamDiscussion(scrapy.Spider):
             text = [t.strip() for t in title.css('::text').extract()]
             text = [t for t in text if t]  # Remove empty strings
             title_post = text[0]
-            print(title_post)
+           
 
             yield response.follow(url=post.attrib['href'], callback=self.get_post, meta={'title_post':  title_post})
 
