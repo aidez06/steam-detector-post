@@ -12,6 +12,10 @@ BOT_NAME = "steam_detector_post"
 SPIDER_MODULES = ["steam_detector_post.spiders"]
 NEWSPIDER_MODULE = "steam_detector_post.spiders"
 
+# Enable your spider and set custom settings
+FEED_FORMAT = 'json'
+FEED_URI = 'data_saved.json'
+FEED_EXPORT_ENCODING = 'utf-8'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "steam_detector_post (+http://www.yourdomain.com)"
