@@ -3,3 +3,6 @@
 
 
 I just want to make you aware that this project is solely intended to enhance my skills in the field of web scraping. I would like to inform you that the data obtained through this script will not be used for selling purposes. It is important to use this tool responsibly and ethically, avoiding any inappropriate or unauthorized actions.
+
+
+<b>You may install module using pip freeze > requirements.txt</b>
