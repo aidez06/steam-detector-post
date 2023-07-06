@@ -1,3 +1,4 @@
+
 import scrapy
 from typing import Generator
 from steam_detector_post.items import SteamDetectorPostItem
@@ -13,11 +14,7 @@ class SteamDiscussion(scrapy.Spider):
             'https://steamcommunity.com/groups/CSGOTrader/discussions',
             'https://steamcommunity.com/groups/CS2Trading/discussions'
         ]
-        custom_settings = {
-            'DUPEFILTER_CLASS': 'scrapy.dupefilters.RFPDupeFilter',
-            'DUPEFILTER_DEBUG': True,  # Enable debug mode to see when duplicates are filtered
-            'FEEDS': {'data_saved.json': {'format': 'json', 'overwrite': True}}
-        }
+
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
 
@@ -50,3 +47,4 @@ class SteamDiscussion(scrapy.Spider):
             post_item['title'] = title_post
             post_item['profile'] = steam_profile
             yield post_item
+

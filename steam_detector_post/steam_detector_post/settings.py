@@ -13,9 +13,12 @@ SPIDER_MODULES = ["steam_detector_post.spiders"]
 NEWSPIDER_MODULE = "steam_detector_post.spiders"
 
 # Enable your spider and set custom settings
-FEED_FORMAT = 'json'
-FEED_URI = 'data_saved.json'
-FEED_EXPORT_ENCODING = 'utf-8'
+# Custom settings
+DUPEFILTER_CLASS = 'scrapy.dupefilters.RFPDupeFilter'
+DUPEFILTER_DEBUG = True  # Enable debug mode to see when duplicates are filtered
+ITEM_PIPELINES = {
+    'steam_discussion.pipelines.SaveSQLPipeLine': 300,
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "steam_detector_post (+http://www.yourdomain.com)"
