@@ -6,3 +6,15 @@ I just want to make you aware that this project is solely intended to enhance my
 
 
 <b>You may install module using pip freeze > requirements.txt</b>
+
+
+<h1>To start the program</h1>
+<ul>
+  <li>You may need to install python</li>
+  <li>Install the requirements.txt</li>
+  <li>Download mysql</li>
+  <li>Costumize the username,localhost,port and password of your mysql</li>
+  <li>You may go to commandline in working directory and type cli : python bot_start.py</li>
+  
+</ul>
+<qoutes>You may also costumize the url from any discussion on steam post</qoutes>
